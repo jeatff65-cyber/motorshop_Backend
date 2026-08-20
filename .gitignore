@@ -1,0 +1,17 @@
+# Python
+venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+
+# Local test databases
+*_test_bookstore.db
+*.db
+
+# Environment & secrets (never commit)
+file.env
+
+# IDE
+.idea/
+.vscode/
