@@ -95,6 +95,27 @@ python -m app.db.init_db
 
 > Default admin: `admin@bookstore.com` / `admin123`  (change it after first login!)
 
+## Deploy with Docker
+
+The repo includes a `Dockerfile` (gunicorn + uvicorn workers) and a `.dockerignore`.
+
+Build and run it locally:
+
+```bash
+docker build -t motorshop-backend .
+docker run -p 8000:8000 \
+  -e DATABASE_URL=postgresql://USER:PASSWORD@HOST:5432/DATABASE \
+  -e SECRET_KEY=change-me-to-a-long-random-string \
+  motorshop-backend
+```
+
+> `file.env` is gitignored and **never** copied into the image. On the deploy
+> platform (e.g. Render → your service → **Environment**), set the same variables
+> as env vars: `DATABASE_URL`, `SECRET_KEY`, `ALGORITHM`, `ACCESS_TOKEN_EXPIRE_MINUTES`.
+> The app starts even if the database is unreachable, so `/docs` is always available.
+
+## API Overview
+
 ## API Overview
 
 | Method | Endpoint                    | Access  | Description                    |

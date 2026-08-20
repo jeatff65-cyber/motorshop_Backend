@@ -1,0 +1,22 @@
+# VCS
+.git
+.gitignore
+
+# Python
+venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+
+# Local test databases
+*.db
+*_test_bookstore.db
+
+# Environment & secrets (never copy into the image)
+file.env
+.env
+
+# IDE
+.idea/
+.vscode/
